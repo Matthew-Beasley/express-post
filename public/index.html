@@ -1,0 +1,41 @@
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+  </head>
+
+  <body>
+    <div id="root">
+      <script type="text/babel">
+        const App = () => {
+          const { useEffect, useState } = React;
+
+          const [user, setUser] = useState('');
+          const [users, setUsers] = useState([]);
+
+          return (
+            <div id="container">
+              <h2>User App</h2>
+              <form onSubmit={(ev) => ev.preventDefault()}>
+                <input type="text" value={user} onChange={ev => setUser(ev.target.value)} />
+                <button onClick={ev => postUser()}>Create User</button>
+              </form>
+            </div>
+          )
+        }
+
+        ReactDOM.render(<App />, document.querySelector('#root'))
+      </script>
+    </div>
+  </body>
+
+</html>
